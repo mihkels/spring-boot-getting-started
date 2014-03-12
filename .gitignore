@@ -1,5 +1,6 @@
 *.iml
 gradlew*
+rebel.xml
 gradle
 .gradle
 .idea
