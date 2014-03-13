@@ -7,12 +7,12 @@ application with Intellij IDEA + JRebel.
 Learning Objectives
 -------------------
 
-* Setup Spring Boot project in IntellijIDE
-* Building project with Gradle 
-* Use Jetty Embedded app server instead of Tomcat
-* Setup Travis CI 
-* Deploy to Heroku
-* Deploy to Vagrant development server
+1. Setup Spring Boot project in IntellijIDE
+1. Building project with Gradle 
+1. Use Jetty Embedded app server instead of Tomcat
+1. Setup Travis CI 
+1. Deploy to Heroku
+1. Deploy to Vagrant development server
 
 Requirements
 ------------
