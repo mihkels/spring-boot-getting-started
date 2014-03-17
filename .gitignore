@@ -7,4 +7,4 @@ gradle
 .gradle
 .idea
 
-static/bower_components/*
+static/js/vendor/*

@@ -12,7 +12,8 @@
   "dependencies": {
     "jquery": "latest",
     "bootstrap": "latest",
-    "requirejs": "latest"
+    "requirejs": "latest",
+    "ember": "latest"
   },
   "keywords": [
     "spring",
