@@ -1,24 +1,34 @@
+var vendor = 'vendor/';
 require.config({
-    baseUrl: 'bower_components',
+    baseUrl: 'js',
     paths: {
-        jQuery: 'jquery/dist/jquery.min',
-        bootstrap: 'bootstrap/dist/js/bootstrap.min'
+        jQuery: vendor + 'jquery/jquery',
+        bootstrap: vendor + 'bootstrap/dist/js/bootstrap',
+        Handlebars: vendor + 'handlebars/handlebars',
+        Ember: vendor + "ember/ember"
     },
     shim: {
-        jQuery: {
-            exports: 'JQuery'
+        'jQuery': {
+            exports: 'jQuery'
         },
-        bootstrap: {
+        'bootstrap': {
             deps: ['jQuery'],
             exports: 'bootstrap'
+        },
+        'Handlebars': {
+            exports: 'Handlebars'
+        },
+        'Ember': {
+            deps: ['Handlebars'],
+            exports: 'Ember'
         }
     },
     waitSeconds: 20
 });
 
 require(
-    ['jQuery', 'bootstrap'],
-    function () {
-        console.log('hello world')
+    ['jQuery', 'bootstrap', 'Ember', 'main'],
+    function ($, bootstrap, Ember, AppMain) {
+        AppMain();
     }
 );
