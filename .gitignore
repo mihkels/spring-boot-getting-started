@@ -6,3 +6,5 @@ rebel.xml
 gradle
 .gradle
 .idea
+
+static/bower_components/*
