@@ -7,4 +7,10 @@ gradle
 .gradle
 .idea
 
-static/js/vendor/*
+static/js/*
+static/fonts/*
+static/css/*
+node_modules
+
+!static/js/app.js
+!static/css/app.css
