@@ -12,6 +12,13 @@ module.exports = function(grunt) {
             }
         },
         clean: ['static/vendor'],
+        copy: {
+            main: {
+                files: [
+                    {expand: true, cwd: 'static', src: ['**'], dest: 'src/main/webapp/'}
+                ]
+            }
+        },
         bowercopy: {
             options: {
                 clean: true
@@ -43,6 +50,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-bowercopy');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['bowercopy', 'concat', 'clean']);
+    grunt.registerTask('default', ['bowercopy', 'concat', 'clean', 'copy']);
 };

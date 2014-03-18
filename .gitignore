@@ -12,5 +12,7 @@ static/fonts/*
 static/css/*
 node_modules
 
+src/main/webapp/*
+
 !static/js/app.js
 !static/css/app.css
