@@ -27,6 +27,23 @@ Configuration and tools I used to develop the demo application
 * JRebel 5.5 Personal License
 * Vagrant (MySQL)
 
+How to build this project?
+--------------------------
+
+First maek sure You have ```gradle``` and ```grunt``` installed.
+If not run following command:
+
+``` bash
+git clone https://github.com/mihkels/spring-boot-getting-started.git \ 
+cd spring-boot-getting-started \
+brew install gradle && brew install node && npm install -g grunt-cli
+```
+
+After that You are ready to buidl and run this sample application by issuing following command.
+```
+cd $PROJECT_DIR$ && grunt && gradle build
+```
+
 Notes on Intellij IDEA and Spring Boot
 --------------------------------------
 
