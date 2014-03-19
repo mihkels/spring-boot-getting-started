@@ -1,4 +1,11 @@
 language: java
 
+before_install:
+  - npm install grunt-cli -g
+  - npm install bower -g
+
 jdk:
   - oraclejdk7
+
+script:
+  - grunt
