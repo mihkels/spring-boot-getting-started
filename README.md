@@ -1,5 +1,6 @@
 Spring Boot Getting Started Guide
 =================================
+[![Build Status](https://travis-ci.org/mihkels/spring-boot-getting-started.png?branch=master)](https://travis-ci.org/mihkels/spring-boot-getting-started)
 
 Here are my personal notes about how to develop Spring Boot web
 application with Intellij IDEA + JRebel.
