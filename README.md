@@ -34,7 +34,8 @@ First maek sure You have ```gradle``` and ```grunt``` installed.
 If not run following command:
 
 ``` bash
-git clone https://github.com/mihkels/spring-boot-getting-started.git && cd spring-boot-getting-started \
+git clone https://github.com/mihkels/spring-boot-getting-started.git \ 
+cd spring-boot-getting-started \
 brew install gradle && brew install node && npm install -g grunt-cli
 ```
 
