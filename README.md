@@ -56,3 +56,27 @@ In this case the root cause may be that Intellij does not automatically make/reb
 project after saving. To fix this issue You can press __Shift+Shift__ (that's double Shift) and
 type __make project__
 
+Setting up Travis CI for Java and JavaScript
+--------------------------------------------
+
+Because Travis only supports only one language per git repository then only solution is but JavaScript build and testing tasks under ```script:``` section in ```.travis.yml``` file. 
+
+Main notes from build file:
+* We need install ```bower``` and ```grunt``` before we run build
+* Travis CI by default will run ```gradle assemble``` and ```gradle check``` so do need specify it
+* To test JavaScript build we specify task under ```script``` section
+
+``` yml
+language: java
+
+before_install:
+  - npm install grunt-cli -g
+  - npm install bower -g
+
+jdk:
+  - oraclejdk7
+
+script:
+  - cd static && npm install && grunt -verbose && cd ..
+```
+
