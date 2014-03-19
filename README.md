@@ -37,12 +37,12 @@ If not run following command:
 ``` bash
 git clone https://github.com/mihkels/spring-boot-getting-started.git \ 
 cd spring-boot-getting-started \
-brew install gradle && brew install node && npm install -g grunt-cli
+brew install gradle && brew install node && npm install -g grunt-cli && npm install -g bower
 ```
 
 After that You are ready to buidl and run this sample application by issuing following command.
 ```
-cd $PROJECT_DIR$ && grunt && gradle build
+cd $PROJECT_DIR$ && npm install && grunt && gradle build
 ```
 
 Notes on Intellij IDEA and Spring Boot
