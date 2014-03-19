@@ -9,4 +9,4 @@ jdk:
   - oraclejdk7
 
 script:
-  - grunt -verbose
+  - cd static && npm install && grunt -verbose && cd ..

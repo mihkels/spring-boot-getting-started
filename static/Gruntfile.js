@@ -7,15 +7,15 @@ module.exports = function(grunt) {
                 stripBanners: true
             },
             dist: {
-                src: ['static/vendor/jquery.js', 'static/vendor/handlebars.js', 'static/vendor/*.js'],
-                dest: 'static/js/combined.js'
+                src: ['vendor/jquery.js', 'vendor/handlebars.js', 'vendor/*.js'],
+                dest: 'js/combined.js'
             }
         },
-        clean: ['static/vendor'],
+        clean: ['vendor'],
         copy: {
             main: {
                 files: [
-                    {expand: true, cwd: 'static', src: ['**'], dest: 'src/main/webapp/'}
+                    {expand: true, src: ['js/*', 'css/*', 'fonts/*', '*.html'], dest: '../src/main/webapp/'}
                 ]
             }
         },
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
             },
             libs: {
                 options: {
-                    destPrefix: 'static/vendor/'
+                    destPrefix: 'vendor/'
                 },
                 files: {
                     'jquery.js': 'jquery/jquery.js',
@@ -36,12 +36,12 @@ module.exports = function(grunt) {
             },
             folders: {
                 files: {
-                    'static/fonts': 'bootstrap/dist/fonts'
+                    'fonts': 'bootstrap/dist/fonts'
                 }
             },
             glob: {
                 files: {
-                    'static/css': 'bootstrap/dist/css/*[^min].css'
+                    'css': 'bootstrap/dist/css/*[^min].css'
                 }
             }
         }
