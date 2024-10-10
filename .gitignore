@@ -1,7 +1,6 @@
 *.iml
 build
 out
-gradlew*
 rebel.xml
 gradle
 .gradle
