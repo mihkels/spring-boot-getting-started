@@ -2,7 +2,6 @@
 build
 out
 rebel.xml
-gradle
 .gradle
 .idea
 
