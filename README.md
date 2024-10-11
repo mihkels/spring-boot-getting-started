@@ -1,48 +1,60 @@
-Spring Boot Getting Started Guide
-=================================
+# Spring Boot Getting Started Guide
+
 [![Build Status](https://travis-ci.org/mihkels/spring-boot-getting-started.png?branch=master)](https://travis-ci.org/mihkels/spring-boot-getting-started)
 
-Here are my personal notes about how to develop Spring Boot web
-application with Intellij IDEA + JRebel.
+Here are my personal notes about how-to set up local Spring Boot web
+app with Astro frontend.
 
 Learning Objectives
 -------------------
 
 1. Setup Spring Boot project in IntellijIDE
-1. Building project with Gradle 
-1. Use Jetty Embedded app server instead of Tomcat
-1. Setup Travis CI 
-1. Deploy to Heroku
-1. Deploy to Vagrant development server
+2. Building a project with Gradle 
+3. Use Jetty Embedded app server instead of Tomcat
+4. Set up GitHub Actions for CI 
+5. Deploy to DigitalOcean App platform 
+6. Build Docker images of native frontend and backend 
 
 Requirements
 ------------
 
 Configuration and tools I used to develop the demo application
 
-* Mac OS X 10.7
-* Homebrew package manager
-* Java 1.7
-* Grails 1.11
-* Intellij 13 Ultimate
-* JRebel 5.5 Personal License
-* Vagrant (MySQL)
+* macOS 15
+* Java GraalVM 21 to build native image
+* Deno 2 to for frontend development 
+* Homebrew package manager to install `mise`
+* `mise` as my development package manager
+* Gradle 8.10.2
+* Intellij 2024.2 
+* Docker 
 
-How to build this project?
---------------------------
+## Build the project
 
-First maek sure You have ```gradle``` and ```grunt``` installed.
-If not run following command:
+Before installing the project, make sure you have installed the following tools:
+
+```bash
+brew install mise 
+# The version of GraalVM can be different but it should be 21 or higher 
+mise install java@oracle-graalvm-21.0.2 
+mise install deno@latest
+
+# make sure the version mentioned above are activated
+mise use java@oracle-graalvm-21.0.2
+mise use deno@latest
+```
+
+Now clone the project:
 
 ``` bash
 git clone https://github.com/mihkels/spring-boot-getting-started.git \ 
-cd spring-boot-getting-started \
-brew install gradle && brew install node && npm install -g grunt-cli && npm install -g bower
+cd spring-boot-getting-started
 ```
 
-After that You are ready to buidl and run this sample application by issuing following command.
-```
-cd $PROJECT_DIR$ && npm install && grunt && gradle build
+Now build the project:
+
+```bash
+./gradlew build && cd static && deno install 
 ```
 
 Notes on Intellij IDEA and Spring Boot

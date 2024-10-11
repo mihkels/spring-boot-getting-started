@@ -1,31 +1,17 @@
 {
-  "name": "spring-boot-getting-started",
-  "version": "0.1.0",
-  "description": "Basic Spring boot example",
-  "main": "static/index.html",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mihkels/spring-boot-getting-started.git"
+  "name": "spring-boot-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "keywords": [
-    "spring",
-    "grunt"
-  ],
-  "author": "Mihkel Selgal",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mihkels/spring-boot-getting-started/issues"
-  },
-  "homepage": "https://github.com/mihkels/spring-boot-getting-started",
-  "devDependencies": {
-      "grunt": "~0.4.2",
-      "grunt-contrib-clean": "~0.5.0",
-      "grunt-contrib-uglify": "~0.4.0",
-      "grunt-contrib-watch": "~0.6.0",
-      "grunt-contrib-copy": "~0.5.0",
-      "grunt-contrib-concat": "~0.3.0",
-      "grunt-contrib-connect": "~0.7.1",
-      "grunt-contrib-cssmin": "~0.8.0",
-      "grunt-bowercopy": "~0.9.0"
+  "dependencies": {
+    "astro": "^4.16.0",
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.6.3"
   }
 }
