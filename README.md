@@ -1,6 +1,6 @@
 # Spring Boot Getting Started Guide
 
-[![Build Status](https://travis-ci.org/mihkels/spring-boot-getting-started.png?branch=master)](https://travis-ci.org/mihkels/spring-boot-getting-started)
+![Build Status](https://github.com/mihkels/spring-boot-getting-started/actions/workflows/gradle.yml/badge.svg)
 
 Here are my personal notes about how-to set up local Spring Boot web
 app with Astro frontend.
