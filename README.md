@@ -1,60 +1,68 @@
-# Spring Boot Getting Started Guide
+# Spring Boot Getting Started
 
-![Build Status](https://github.com/mihkels/spring-boot-getting-started/actions/workflows/gradle.yml/badge.svg)
-![Build Status](https://github.com/mihkels/spring-boot-getting-started/actions/workflows/deno.yml/badge.svg)
+![Backend build](https://github.com/mihkels/spring-boot-getting-started/actions/workflows/gradle.yml/badge.svg)
+![Frontend build](https://github.com/mihkels/spring-boot-getting-started/actions/workflows/deno.yml/badge.svg)
 
-Here are my personal notes about how-to set up local Spring Boot web
-app with Astro frontend.
+Notes for developing a reactive Spring Boot API and a separate Astro
+frontend, and for exploring Gradle, IDEs, GitHub Actions, Docker, and
+deployment to DigitalOcean App Platform. The API uses the WebFlux starter
+and its embedded Reactor Netty server.
 
-Learning Objectives
--------------------
+## Requirements
 
-1. Setup Spring Boot project in IntellijIDE
-2. Building a project with Gradle 
-3. Use Jetty Embedded app server instead of Tomcat
-4. Set up GitHub Actions for CI 
-5. Deploy to DigitalOcean App platform 
-6. Build Docker images of native frontend and backend 
+- [mise](https://mise.jdx.dev/getting-started.html) for Java and Deno
+- Docker, if you want to run the backend as a container
 
-Requirements
-------------
+The project uses Spring Boot 4.1.2, Java 27 (Temurin), Deno 2, and the Gradle
+9.8.2 wrapper. The Java and Deno versions are selected in `.mise.toml`; a
+separate Gradle installation is not needed. This setup builds a JVM
+application and does not provide a GraalVM native-image build.
 
-Configuration and tools I used to develop the demo application
-
-* macOS 15
-* Java GraalVM 21 to build native image
-* Deno 2 to for frontend development 
-* Homebrew package manager to install `mise`
-* `mise` as my development package manager
-* Gradle 8.10.2
-* Intellij 2024.2 
-* Docker 
-
-## Build the project
-
-Before installing the project, make sure you have installed the following tools:
+## Setup
 
 ```bash
-brew install mise 
-# The version of GraalVM can be different but it should be 21 or higher 
-mise install java@oracle-graalvm-21.0.2 
-mise install deno@latest
-
-# make sure the version mentioned above are activated
-mise use java@oracle-graalvm-21.0.2
-mise use deno@latest
-```
-
-Now clone the project:
-
-``` bash
-git clone https://github.com/mihkels/spring-boot-getting-started.git \ 
+git clone https://github.com/mihkels/spring-boot-getting-started.git
 cd spring-boot-getting-started
+mise install
 ```
 
-Now, build the project:
+The commands below use `mise exec` so they also work without activating mise
+in your shell.
+
+## Backend
+
+Build and run the API from the repository root:
 
 ```bash
-./gradlew build && cd static && deno install 
+mise exec -- ./gradlew clean build
+mise exec -- ./gradlew bootRun
 ```
 
+The API listens on `http://localhost:8080`. For example:
+
+```bash
+curl http://localhost:8080/api
+curl http://localhost:8080/demo
+curl -X POST 'http://localhost:8080/counter?message=hello'
+```
+
+To build and run the backend container:
+
+```bash
+docker build -t spring-boot-getting-started .
+docker run --rm -p 8080:8080 spring-boot-getting-started
+```
+
+## Frontend
+
+The Astro frontend runs separately from the API:
+
+```bash
+cd static
+mise exec -- deno install --frozen-lockfile
+mise exec -- deno lint
+mise exec -- deno task build
+mise exec -- deno task dev
+```
+
+Open the local URL printed by Astro, normally `http://localhost:4321`.
